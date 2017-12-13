@@ -202,6 +202,7 @@
       init: function () {
         this.questionsOperation()
         this.questionsSubmit()
+        this.questionOperation()
       },
 
       //题库操作
@@ -237,6 +238,22 @@
             window.location.href = 'questions.html'
           })
           e.preventDefault()
+        })
+      },
+
+      questionOperation: function () {
+        var $edit = $('#question-edit')
+        var $delete = $('#question-delete')
+
+        $edit.on('click', function () {
+          var checks = $('.question-checkbox[type="checkbox"]:checked')
+          console.log(checks)
+          window.location.href = 'questionEdit.html?id=' + checks.data('id')
+        })
+
+        $delete.on('click', function () {
+          var checks = $('.question-checkbox[type="checkbox"]:checked')
+          console.log(checks)
         })
       }
     }

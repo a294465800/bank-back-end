@@ -117,6 +117,7 @@ ul {
   cursor: pointer;
   padding: 0 15px;
   outline: 0;
+  text-decoration: none;
 }
 
 .success {
@@ -149,6 +150,7 @@ ul {
   width: 100%;
   font-size: 14px;
   text-align: center;
+  table-layout: fixed;
 }
 
 thead {
@@ -176,4 +178,7 @@ thead {
 .table-body>tr>td {
   border-right: 1px solid #999;
   border-bottom: 1px solid #999;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

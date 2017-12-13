@@ -51,6 +51,22 @@
             _ajax.errFnc(err)
           }
         })
+      },
+
+      upload: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'upload',
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
       }
     }
 
@@ -131,6 +147,7 @@
       staffOperation: function () {
         var $edit = $('#staff-edit')
         var $delete = $('#staff-delete')
+        var $upload = $('#staff-upload')
 
         $edit.on('click', function (e) {
           var $checks = $('.staff-checkbox[type="checkbox"]:checked')
@@ -141,7 +158,14 @@
         $delete.on('click', function (e) {
           var $checks = $('.staff-checkbox[type="checkbox"]:checked')
           console.log($checks.data('id'))
+        })
 
+        $upload.on('change', function (e) {
+          var formData = new FormData()
+          formData.append('file', this.files[0])
+          _ajax.upload(formData, function (res) {
+            console.log(res)
+          })
         })
       }
     }

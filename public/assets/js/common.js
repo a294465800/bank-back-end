@@ -110,19 +110,38 @@
      */
     var _staff = {
       init: function () {
-        this.staffAdd()
+        this.staffSubmit()
+        this.staffOperation()
       },
 
-      //职员添加
-      staffAdd: function () {
+      //职员添加保存
+      staffSubmit: function () {
         var $submit = $('#staff-submit')
         $submit.on('submit', function (e) {
           var $this = $(this)
           var data = _common.JSONData($this.serializeArray())
           _ajax.staffAdd(data, function (res) {
-            window.location.reload()
+            window.location.href = 'staffList.html'
           })
           e.preventDefault()
+        })
+      },
+
+      //职员列表操作
+      staffOperation: function () {
+        var $edit = $('#staff-edit')
+        var $delete = $('#staff-delete')
+
+        $edit.on('click', function (e) {
+          var $checks = $('.staff-checkbox[type="checkbox"]:checked')
+          console.log($checks)
+          window.location.href = 'staffAdd.html'
+        })
+
+        $delete.on('click', function (e) {
+          var $checks = $('.staff-checkbox[type="checkbox"]:checked')
+          console.log($checks.data('id'))
+
         })
       }
     }

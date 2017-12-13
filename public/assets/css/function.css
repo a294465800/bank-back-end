@@ -1,86 +1,3 @@
-/* zui */
-
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 3px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.alert-danger {
-  color: #e75033;
-  background-color: #ffe5e0;
-}
-
-#alert-close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 14px;
-  color: #333;
-  cursor: pointer;
-}
-
-
-/* 通用 */
-
-* {
-  box-sizing: content-box;
-}
-
-body {
-  margin: 0;
-}
-
-body,
-html {
-  height: 100%;
-  width: 100%;
-}
-
-.clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.clearfix {
-  zoom: 1;
-}
-
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
-}
-
-.container {
-  width: 100%;
-  min-width: 1140px;
-  min-height: 900px;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.sub-container {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  position: relative;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 
 /* 头部样式 */
 
@@ -240,6 +157,17 @@ ul {
   border-bottom: 1px solid #c1d3de;
   font-size: 15px;
   font-weight: 700;
+  position: relative;
+}
+
+.sub-header::after {
+  content: '';
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .2);
 }
 
 .sub-header-img {
@@ -247,6 +175,7 @@ ul {
   margin-right: 5px;
   margin-bottom: 2px;
 }
+
 
 /* 底部样式 */
 
@@ -268,7 +197,9 @@ ul {
   text-align: center;
 }
 
+
 /* 员工添加样式 */
+
 .staff-add-form {
   padding: 30px;
   font-size: 14px;
@@ -277,4 +208,34 @@ ul {
 .staff-add-btns .btn {
   margin: 0 10px;
   padding: 0 30px;
+}
+
+
+/* 职员列表 */
+
+.staff-operation {
+  line-height: 35px;
+  height: 35px;
+  padding-left: 10px;
+  border-bottom: 1px solid #c1d3de;
+  background-color: #e8f6ff;
+}
+
+.staff-operation>li {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.staff-operation>li>a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+.staff-icon {
+  vertical-align: middle;
+  margin-bottom: 4px;
+  margin-right: 4px;
 }

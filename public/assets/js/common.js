@@ -170,8 +170,27 @@
       }
     }
 
+    /**
+     * 题库 页面 jq
+     */
+    var _questions = {
+      init: function () {
+        this.questionsOperation()
+      },
+
+      questionsOperation: function () {
+        var $delete = $('#questions-delete')
+
+        $delete.on('click', function (e) {
+          var checks = $('.questions-checkbox[type="checkbox"]:checked')
+          console.log(checks)
+        })
+      }
+    }
+
     _index.init()
     _staff.init()
     _ajax.init()
+    _questions.init()
   })
 }()

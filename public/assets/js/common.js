@@ -296,9 +296,35 @@
       }
     }
 
+    /**
+     * 考试管理 页面 jq
+     */
+    var _examination = {
+      init: function () {
+        this.examinationOperation()
+      },
+
+      //考试设置操作
+      examinationOperation: function () {
+        var $edit = $('#examination-edit')
+        var $delete = $('#examination-delete')
+
+        $edit.on('click', function () {
+          var checks = $('.examination-checkbox[type="checkbox"]:checked')
+          console.log(checks)
+        })
+
+        $delete.on('click', function () {
+          var checks = $('.examination-checkbox[type="checkbox"]:checked')
+          console.log(checks)
+        })
+      }
+    }
+
     _index.init()
     _staff.init()
     _ajax.init()
     _questions.init()
+    _examination.init()
   })
 }()

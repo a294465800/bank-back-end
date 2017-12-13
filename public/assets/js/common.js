@@ -320,6 +320,7 @@
       init: function () {
         this.examinationOperation()
         this.examinationSubmit()
+        this.examinationSearch()
       },
 
       //考试设置操作
@@ -348,6 +349,18 @@
           _ajax.examinationAdd(data, function (res) {
             window.location.href = 'examinationConfig.html'
           })
+          e.preventDefault()
+        })
+      },
+
+      //考试结果查询
+      examinationSearch: function () {
+        var $search = $('#examination-search')
+
+        $search.on('submit', function (e) {
+          const $this = $(this)
+          var data = _common.JSONData($this.serializeArray())
+          console.log(data)
           e.preventDefault()
         })
       }

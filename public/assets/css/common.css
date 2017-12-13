@@ -139,6 +139,16 @@ ul {
   background-color: #9fa4ad;
 }
 
+.primary {
+  background-color: #409eff;
+  color: #fff;
+}
+
+.primary:hover {
+  background-color: #66b1ff;
+  color: #fff;
+}
+
 .danger-text {
   color: #e75033;
 }

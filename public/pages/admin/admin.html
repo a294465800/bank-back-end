@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="renderer" content="webkit">
-  <title>结果查询</title>
+  <title>系统管理</title>
   <link rel="stylesheet" href="../../assets/css/common.css">
   <link rel="stylesheet" href="../../assets/css/function.css">
 </head>
@@ -17,30 +17,18 @@
     <!-- 公有导航，作模版 -->
     <div class="sub-header">
       <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
-      <span>结果查询</span>
+      <span>系统管理</span>
     </div>
     <!-- /公有导航 -->
-
-    <!-- 考试设置操作 -->
-    <div class="staff-operation" style="padding-top: 10px; padding-bottom: 10px;">
-      <form id="examination-search">
-        <input type="text" class="input-control" name="start" placeholder="请输入开始时间">
-        <span>至</span>
-        <input type="text" class="input-control" name="end" placeholder="请输入结束时间">
-        <input type="submit" class="btn primary" value="查询"></input>
-      </form>
-    </div>
-    <!-- /考试设置操作 -->
 
     <!-- 结果列表 -->
     <table class="table-list">
       <thead>
         <tr class="table-row">
           <th>序号</th>
+          <th>管理员名称</th>
           <th>真名</th>
-          <th>登录工号</th>
-          <th>时间</th>
-          <th>分数</th>
+          <th>添加时间</th>
         </tr>
       </thead>
       <tbody class="table-body">
@@ -50,7 +38,6 @@
           <td>1007</td>
           <td>张飞</td>
           <td>2017-12-01</td>
-          <td>2分</td>
         </tr>
         <!-- /循环列表 -->
         <tr>
@@ -58,18 +45,11 @@
           <td>2003</td>
           <td>刘德华</td>
           <td>2017-12-01</td>
-          <td>99分</td>
         </tr>
       </tbody>
     </table>
     <!-- /结果列表 -->
   </div>
-
-
-  <!-- 通用引入 -->
-  <script src="../../assets/js/jquery1.9.1.min.js"></script>
-  <script src="../../assets/js/common.js"></script>
-  <!-- /通用引入 -->
 </body>
 
 </html>

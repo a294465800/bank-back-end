@@ -17,37 +17,24 @@
     <!-- 公有导航，作模版 -->
     <div class="sub-header">
       <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
-      <span>添加职员</span>
+      <span>题库添加</span>
     </div>
     <!-- /公有导航 -->
 
     <!-- 员工添加表单 -->
     <div class="staff-add-form">
-      <form id="staff-submit">
+      <form id="questions-submit">
         <label class="label-control">
-          <span class="label-text">登录工号：</span>
-          <input class="input-control" required type="text" name="staff_number" placeholder="登录工号">
+          <span class="label-text">题库名：</span>
+          <input class="input-control" required type="text" name="question_name" placeholder="题库名">
         </label>
         <label class="label-control">
-          <span class="label-text">密码：</span>
-          <input class="input-control" required type="text" name="staff_password" placeholder="默认密码123456">
+          <span class="label-text">题目导入：</span>
+          <input type="file" id="questions-upload">
         </label>
         <label class="label-control">
-          <span class="label-text">真名：</span>
-          <input class="input-control" required type="text" name="staff_name" placeholder="真名">
-        </label>
-        <label class="label-control">
-          <span class="label-text">性别：</span>
-          <label class="radio-label">
-            <input type="radio" required name="staff_sex" value="男">男
-          </label>
-          <label class="radio-label">
-            <input type="radio" required name="staff_sex" value="女">女
-          </label>
-        </label>
-        <label class="label-control">
-          <span class="label-text">联系电话：</span>
-          <input class="input-control" required type="text" name="staff_phone" placeholder="联系电话">
+          <p class="danger-text">*请严格按照格式上传 Excel 文件！</p>
+          <a href="download" target="_blank">Excel 模版下载</a>
         </label>
         <div class="staff-add-btns">
           <input type="submit" class="btn success" value="提交"></input>

@@ -53,6 +53,11 @@
         })
       },
 
+      /**
+       * 上传
+       * @param {Object} data {file}
+       * @param {Function} cb 回调
+       */
       upload: function (data, cb) {
         $.ajax({
           type: 'POST',
@@ -60,6 +65,25 @@
           data: data,
           contentType: false,
           processData: false,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
+       * 题库表单提交
+       * @param {Object} data
+       * @param {Function} 回调
+       */
+      questionsAdd: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'questions/add',
+          data: data,
           success: function (res) {
             typeof cb === 'function' && cb(res)
           },
@@ -103,9 +127,6 @@
 
         $navbar.on('click', '.navbar-sub-item', function (e) {
           var $this = $(this)
-          if ($this.hasClass('active')) {
-            return false
-          }
           var $navSubItem = $('.navbar-sub-item')
           $navSubItem.removeClass('active')
           $this.addClass('active')
@@ -162,7 +183,11 @@
 
         $upload.on('change', function (e) {
           var formData = new FormData()
-          formData.append('file', this.files[0])
+          var files = this.files
+          if (files.length < 1) {
+            return false
+          }
+          formData.append('file', files[0])
           _ajax.upload(formData, function (res) {
             console.log(res)
           })
@@ -176,14 +201,42 @@
     var _questions = {
       init: function () {
         this.questionsOperation()
+        this.questionsSubmit()
       },
 
+      //题库操作
       questionsOperation: function () {
         var $delete = $('#questions-delete')
 
         $delete.on('click', function (e) {
           var checks = $('.questions-checkbox[type="checkbox"]:checked')
           console.log(checks)
+        })
+      },
+
+      //题库添加保存
+      questionsSubmit: function () {
+        var $submit = $('#questions-submit')
+        var $upload = $('#questions-upload')
+
+        $upload.on('change', function (e) {
+          var formData = new FormData()
+          var files = this.files
+          if (files.length < 1) {
+            return false
+          }
+          formData.append('file', files[0])
+          _ajax.upload(formData, function (res) {
+            console.log(res)
+          })
+        })
+
+        $submit.on('submit', function (e) {
+          var data = _common.JSONData($this.serializeArray())
+          _ajax.questionsAdd(data, function (res) {
+            window.location.href = 'questions.html'
+          })
+          e.preventDefault()
         })
       }
     }

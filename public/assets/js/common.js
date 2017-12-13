@@ -91,6 +91,25 @@
             _ajax.errFnc(err)
           }
         })
+      },
+
+      /**
+       * 题目编辑
+       * @param {Object} data
+       * @param {Function} cb 回调
+       */
+      questionEdit: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'questions/edit',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
       }
     }
 
@@ -203,6 +222,7 @@
         this.questionsOperation()
         this.questionsSubmit()
         this.questionOperation()
+        this.questionSubmit()
       },
 
       //题库操作
@@ -233,6 +253,7 @@
         })
 
         $submit.on('submit', function (e) {
+          const $this = $(this)
           var data = _common.JSONData($this.serializeArray())
           _ajax.questionsAdd(data, function (res) {
             window.location.href = 'questions.html'
@@ -254,6 +275,23 @@
         $delete.on('click', function () {
           var checks = $('.question-checkbox[type="checkbox"]:checked')
           console.log(checks)
+        })
+      },
+
+      questionSubmit: function () {
+        var $submit = $('#question-submit')
+        $submit.on('submit', function (e) {
+          const $this = $(this)
+          var $checkbox = $('input[type="checkbox"]:checked')
+          if ($checkbox.length === 0) {
+            window.alert('请至少选一个答案！')
+            return false
+          }
+          var data = _common.JSONData($this.serializeArray())
+          _ajax.questionEdit(data, function (res) {
+            window.location.href = 'questions.html'
+          })
+          e.preventDefault()
         })
       }
     }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+  <title>题目编辑</title>
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/function.css">
+</head>
+
+<body>
+  <div class="sub-container">
+    <!-- 公有导航，作模版 -->
+    <div class="sub-header">
+      <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
+      <span>题库查看</span>
+    </div>
+    <!-- /公有导航 -->
+
+    <!-- 题目编辑表单 -->
+    <div class="staff-add-form">
+      <form id="question-submit">
+        <label class="label-control">
+          <span class="label-text">题目：</span>
+          <textarea class="input-control" rows="4" style="width: 400px;" required type="text" name="question_titile" placeholder="请输入题目"></textarea>
+        </label>
+        <label class="label-control">
+          <span class="label-text">A：</span>
+          <input class="input-control" required type="text" name="answer_a" placeholder="选项A答案">
+        </label>
+        <label class="label-control">
+          <span class="label-text">B：</span>
+          <input class="input-control" required type="text" name="answer_b" placeholder="选项B答案">
+        </label>
+        <label class="label-control">
+          <span class="label-text">C：</span>
+          <input class="input-control" required type="text" name="answer_c" placeholder="选项C答案">
+        </label>
+        <label class="label-control">
+          <span class="label-text">D：</span>
+          <input class="input-control" required type="text" name="answer_d" placeholder="选项D答案">
+        </label>
+        <label class="label-control">
+          <span class="label-text">答案：</span>
+          <label class="radio-label">
+            <input type="checkbox" name="answer" value="a">A
+          </label>
+          <label class="radio-label">
+            <input type="checkbox" name="answer" value="b">B
+          </label>
+          <label class="radio-label">
+            <input type="checkbox" name="answer" value="c">C
+          </label>
+          <label class="radio-label">
+            <input type="checkbox" name="answer" value="d">D
+          </label>
+        </label>
+        <div class="staff-add-btns">
+          <input type="submit" class="btn success" value="提交"></input>
+          <input type="reset" class="btn info"></input>
+        </div>
+      </form>
+    </div>
+    <!-- /题目编辑表单 -->
+
+  </div>
+  <!-- 通用引入 -->
+  <script src="../../assets/js/jquery1.9.1.min.js"></script>
+  <script src="../../assets/js/common.js"></script>
+  <!-- /通用引入 -->
+</body>
+
+</html>

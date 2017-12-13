@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+  <title>银行后台管理系统</title>
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/function.css">
+</head>
+
+<body>
+  <div class="login-wrap">
+    <div class="login-part" style="background: url('../../assets/images/login.png') no-repeat;">
+      <div class="login-header" style="background: url('../../assets/images/login_img.png') no-repeat;"></div>
+      <div class="login-content">
+        <form>
+          <label class="login-label">
+            <span class="login-text">用户名</span>
+            <input class="login-input" required type="text" name="username" placeholder="请输入用户名">
+          </label>
+          <label class="login-label">
+            <span class="login-text">密码</span>
+            <input class="login-input" type="password" required name="password" placeholder="请输入密码">
+          </label>
+          <label class="login-label">
+            <span class="login-text">验证码</span>
+            <input class="login-input login-sms" required type="text" name="sms" placeholder="请输入验证码">
+            <img id="sms-img" src="https://s9.rr.itc.cn/r/wapChange/20174_14_12/a2p9su7377673144542.jpg" alt="验证码">
+          </label>
+          <input class="btn primary login-btn" type="submit" value="登录">
+        </form>
+      </div>
+    </div>
+    <div class="login-footer">&copy; Sennki 2017 All Rights Reserved</div>
+  </div>
+  <!-- 通用引入 -->
+  <script src="../../assets/js/jquery1.9.1.min.js"></script>
+  <script src="../../assets/js/common.js"></script>
+  <!-- /通用引入 -->
+</body>
+
+</html>

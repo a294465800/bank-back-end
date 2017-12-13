@@ -35,6 +35,24 @@
       },
 
       /**
+       * 更换验证码
+       * @param {Object} data
+       * @param {Function} cb 回调
+       */
+      smsGet: function (cb) {
+        $.ajax({
+          type: 'GET',
+          url: this.host + 'sms',
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
        * 新增职工表单提交
        * @param {Object} data
        * @param {Function} cb 回调
@@ -366,10 +384,30 @@
       }
     }
 
+    /**
+     * 登录 页面 jq
+     */
+    var _login = {
+      init: function () {
+        this.getSms()
+      },
+
+      getSms: function () {
+        var $sms = $('#sms-img')
+        $sms.on('click', function (e) {
+          var $this = $(this)
+          _ajax.smsGet(res => {
+            $this.attr('src', res.url)
+          })
+        })
+      }
+    }
+
     _index.init()
     _staff.init()
     _ajax.init()
     _questions.init()
     _examination.init()
+    _login.init()
   })
 }()

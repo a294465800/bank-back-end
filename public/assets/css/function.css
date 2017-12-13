@@ -1,4 +1,3 @@
-
 /* 头部样式 */
 
 .index-header {
@@ -247,4 +246,83 @@
   vertical-align: middle;
   margin-bottom: 4px;
   margin-right: 4px;
+}
+
+
+/* 登录样式 */
+
+.login-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #0e90d2;
+}
+
+.login-part {
+  width: 640px;
+  height: 640px;
+  margin: 80px auto;
+  padding-top: 15px;
+}
+
+.login-header {
+  margin: 0 auto;
+  width: 590px;
+  height: 161px;
+}
+
+.login-content {
+  margin-top: 20px;
+}
+
+.login-label {
+  display: block;
+  width: 320px;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px auto;
+}
+
+.login-text {
+  font-size: 18px;
+  display: inline-block;
+  width: 70px;
+}
+
+.login-input {
+  width: 200px;
+  padding: 10px 15px;
+  outline: 0;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.login-sms {
+  width: 100px;
+}
+
+#sms-img {
+  width: 100px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.login-btn {
+  width: 100px;
+  display: block;
+  margin: 20px auto 0;
+  line-height: 2.5;
+}
+
+.login-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  font-size: 15px;
+  color: #333;
+  text-align: center;
 }

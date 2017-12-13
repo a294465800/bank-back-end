@@ -110,6 +110,23 @@
             _ajax.errFnc(err)
           }
         })
+      },
+
+      /**
+       * 考试添加表单提交
+       */
+      examinationAdd: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'examination/add',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
       }
     }
 
@@ -302,6 +319,7 @@
     var _examination = {
       init: function () {
         this.examinationOperation()
+        this.examinationSubmit()
       },
 
       //考试设置操作
@@ -312,11 +330,25 @@
         $edit.on('click', function () {
           var checks = $('.examination-checkbox[type="checkbox"]:checked')
           console.log(checks)
+          window.location.href = 'examinationAdd.html?id=' + checks.data('id')
         })
 
         $delete.on('click', function () {
           var checks = $('.examination-checkbox[type="checkbox"]:checked')
           console.log(checks)
+        })
+      },
+
+      //考试添加表单
+      examinationSubmit: function () {
+        var $submit = $('#examination-submit')
+        $submit.on('submit', function (e) {
+          const $this = $(this)
+          var data = _common.JSONData($this.serializeArray())
+          _ajax.examinationAdd(data, function (res) {
+            window.location.href = 'examinationConfig.html'
+          })
+          e.preventDefault()
         })
       }
     }

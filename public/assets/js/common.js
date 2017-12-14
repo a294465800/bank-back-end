@@ -145,6 +145,24 @@
             _ajax.errFnc(err)
           }
         })
+      },
+
+
+      /**
+       * 红包表单提交
+       */
+      moneyAdd: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'money/add',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
       }
     }
 
@@ -403,11 +421,52 @@
       }
     }
 
+    /**
+     * 红包 页面 jq
+     */
+    var _money = {
+      init: function(){
+        this.moneyOperation()
+      },
+
+      //红包操作
+      moneyOperation: function () {
+        var $edit = $('#money-edit')
+        var $delete = $('#money-delete')
+
+        $edit.on('click', function () {
+          var checks = $('.money-checkbox[type="checkbox"]:checked')
+          console.log(checks)
+          window.location.href = 'moneyAdd.html?id=' + checks.data('id')
+        })
+
+        $delete.on('click', function () {
+          var checks = $('.money-checkbox[type="checkbox"]:checked')
+          console.log(checks)
+        })
+      },
+
+
+      //红包添加表单
+      mooneySubmit: function () {
+        var $submit = $('#money-submit')
+        $submit.on('submit', function (e) {
+          const $this = $(this)
+          var data = _common.JSONData($this.serializeArray())
+          _ajax.moneyAdd(data, function (res) {
+            window.location.href = 'money.html'
+          })
+          e.preventDefault()
+        })
+      },
+    }
+
     _index.init()
     _staff.init()
     _ajax.init()
     _questions.init()
     _examination.init()
     _login.init()
+    _money.init()
   })
 }()
